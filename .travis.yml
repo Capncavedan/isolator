@@ -3,10 +3,20 @@ language: ruby
 rvm: 2.3.1
 cache: bundler
 before_script:
-  - "bundle exec rake db:create"
-  - "bundle exec rake db:schema:load"
+  - bundle exec rake db:create
+  - bundle exec rake db:schema:load
 addons:
   postgresql: '9.4'
 env:
   global:
     - SECRET_KEY_BASE=93146f18109882ad3fdc0d795bf777ea5a93fe619d8f1aa57f2d77d556263041026833b17dd809f41b8f3a1fd6c3e1f39902ac90750b3124e93d1bd9b87a8f4c
+deploy:
+  provider: heroku
+  strategy: api
+  api_key:
+    secure: FZCRgnrrWrqh6grBATfQpdrTHsoygmqjmrHsxqP4DNhSz00MN1CzWFiRQcKdsz68a3B/2PNEbVpgirTVwnibVQiTXWdECWbpaOWE2cuondUj5lKax0zVimFlC+DaKfMZ2QIAOVTE/3bjiZqel9hfPQ6d5KfFIY5vAVUqje1QnONgh9EI8Mr5mvRBmtxpPaYonGtDOJFprcgh9SaJkS7NZHPMZO6+nhKUoZh86NuWEQvMaD0e+jlbfowgxTjhTgxsRhcb7nkyBEFJnx6tkAyAoAhfNh3ZIp1ilgzD5+c+yYl+taWkgHYQe0L+Cdwq7seoRV1QkjCBaHxwrirGP0ID1auW4+IYSxwgfsvhyDIAmPkXnI/3DvS3L/2TC9cJHg0VtDcUaRpDlwwhwhYzQt8eU5JCthLqODPhVGb55Lr38hkNPKX1+1L5cvx/4hhF6c8UDtoVy9gU4W2RRTm/NaigmhJ7jP3SSq0lSOEackHAxmr/v06+23Dro5NqNIFfUOhLVhST0MXBuEnhrtOmo3+uHnzBFUOt5N0p+lHNboNWavI16/hkU8GV+eMBhczJp7W77haPkJl+vr/4hJvFNUkw+rMhoDVSSCq219bszBGwQY25YDoMHq04XCBoiePGK0Ey9p1kXrC508STHbaTb822nmCnF4U6LWFsrBMA8Xn6F+Y=
+  app:
+    master: isolator
+  run:
+    - bundle exec rake db:migrate
+    - restart
