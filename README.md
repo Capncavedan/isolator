@@ -1,6 +1,4 @@
-# README
-
-The Isolator
+# The Isolator
 
 #### Available online
 
@@ -13,7 +11,7 @@ Visit https://isolator.herokuapp.com
 
 #### System dependencies
 
-None
+Postgresql 9.x
 
 #### Configuration
 
@@ -37,4 +35,4 @@ None
 
 #### Deployment instructions
 
-Configured for TravisCI - push to master on github, and a Travis build will be triggered. A successful build on the master branch will cause the code to deploy and Rails migrations to run
+Configured for [Travis CI builds](https://travis-ci.org/Capncavedan/isolator) - push to `master` on Github, and a Travis build will be triggered. A successful build on the master branch will cause the code to deploy [to Heroku](https://isolator.herokuapp.com) and Rails migrations to run
