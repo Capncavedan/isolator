@@ -1,0 +1,12 @@
+sudo: false
+language: ruby
+rvm: 2.3.1
+cache: bundler
+before_script:
+  - "bundle exec rake db:create"
+  - "bundle exec rake db:schema:load"
+addons:
+  postgresql: '9.4'
+env:
+  global:
+    - SECRET_KEY_BASE=93146f18109882ad3fdc0d795bf777ea5a93fe619d8f1aa57f2d77d556263041026833b17dd809f41b8f3a1fd6c3e1f39902ac90750b3124e93d1bd9b87a8f4c
