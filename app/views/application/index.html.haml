@@ -1,0 +1,7 @@
+%h1 Specify hospital
+
+= form_tag "/specify_hospital_number" do
+  %label{for: "hospital_number"}
+    Enter hospital number
+  = text_field_tag "hospital_number", nil, {autofocus: true}
+  = submit_tag "Set"

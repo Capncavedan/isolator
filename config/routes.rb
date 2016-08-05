@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root to: "application#index"
+
+  post "specify_hospital_number", to: "specify_hospital_number", controller: :application
+
 end
