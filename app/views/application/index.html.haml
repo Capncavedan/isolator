@@ -5,3 +5,6 @@
     Enter hospital number
   = text_field_tag "hospital_number", nil, {autofocus: true}
   = submit_tag "Set"
+
+- if current_hospital_number
+  (Currently #{current_hospital_number})
