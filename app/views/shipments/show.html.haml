@@ -1,0 +1,46 @@
+.row
+  .col-xs-12
+    %h1 Shipment record
+
+.row
+  .col-xs-12
+    %table.table.table-striped
+      %tbody
+        %tr
+          %th
+            Hospital number
+          %td
+            = @shipment.hospital_number
+        %tr
+          %th
+            Objective code
+          %td
+            = @shipment.objective_code
+
+        - if @shipment.organism.present?
+          %tr
+            %th
+              Organism
+            %td
+              = @shipment.organism
+
+        %tr
+          %th
+            Isolate starting number
+          %td
+            = @shipment.starting_number
+        %tr
+          %th
+            Isolate quantity to expect
+          %td
+            = @shipment.isolate_quantity
+        %tr
+          %th
+            Created at
+          %td
+            = full_date_format @shipment.created_at
+        %tr
+          %th
+            Updated at
+          %td
+            = full_date_format @shipment.updated_at
