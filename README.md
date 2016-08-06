@@ -1,4 +1,4 @@
-# The Isolator
+# The Isolator [![Build Status](https://travis-ci.org/Capncavedan/isolator.svg?branch=master)](https://travis-ci.org/Capncavedan/isolator)
 
 #### Available online
 
