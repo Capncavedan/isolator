@@ -1,0 +1,5 @@
+- flash.each do |message_type, message|
+  .row
+    .col-xs-12
+      .flash.flash-message{class: [message_type, bootstrap_class_for_flash_type(message_type)]}
+        = message

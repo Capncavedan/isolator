@@ -6,13 +6,8 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
     .container
-
-      - flash.each do |message_type, message|
-        .row
-          .col-xs-12
-            .flash.flash-message{class: [message_type, bootstrap_class_for_flash_type(message_type)]}
-              = message
-
+      = render partial: "layouts/flash_messages"
       = yield
