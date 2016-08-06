@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :shipments
+  resources :shipments do
+    member do
+      get :data_entry
+    end
+  end
 
   root to: "application#index"
 

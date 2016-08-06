@@ -44,3 +44,7 @@
             Updated at
           %td
             = full_date_format @shipment.updated_at
+
+.row
+  .col-xs-12
+    = link_to "Start data entry", data_entry_shipment_path(@shipment), class: "btn btn-primary"

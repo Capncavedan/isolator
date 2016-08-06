@@ -18,6 +18,9 @@ class ShipmentsController < ApplicationController
     end
   end
 
+  def data_entry
+  end
+
 
   private
 
