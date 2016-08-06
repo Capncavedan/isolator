@@ -1,0 +1,17 @@
+div.flash.flash-message {
+  font-size: 150%;
+  border: 3px solid;
+  padding: 0.8em;
+}
+
+div.flash.flash-message.bg-success {
+  border-color: $brand-success;
+}
+
+div.flash.flash-message.bg-info {
+  border-color: $brand-info;
+}
+
+div.flash.flash-message.bg-danger {
+  border-color: $brand-danger;
+}
