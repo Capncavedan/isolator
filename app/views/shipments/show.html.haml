@@ -1,0 +1,28 @@
+.row
+  .col-xs-12
+    %h1 Shipment record
+
+.row
+  .col-xs-12
+    %table.table.table-striped
+      %tbody
+        %tr
+          %th
+            Hospital number
+          %td
+            = @shipment.hospital_number
+        %tr
+          %th
+            Isolate starting number
+          %td
+            = @shipment.starting_number
+        %tr
+          %th
+            Created at
+          %td
+            = @shipment.created_at
+        %tr
+          %th
+            Updated at
+          %td
+            = @shipment.updated_at

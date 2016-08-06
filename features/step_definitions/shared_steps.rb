@@ -19,3 +19,7 @@ end
 When(/^I press "([^"]*)"$/) do |button_text|
   click_button button_text
 end
+
+When(/^I follow "([^"]*)"$/) do |link_text|
+  click_link link_text
+end

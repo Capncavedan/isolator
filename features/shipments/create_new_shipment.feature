@@ -9,4 +9,5 @@ Scenario: Set up a new shipment record
   When I enter information about a new shipment
   And I press "Save"
   Then I should be on the shipment show page
+  And I should see a success flash message saying "New shipment record created"
   And I should see the shipment information I entered previously

@@ -4,3 +4,8 @@
 
 .row
   .col-xs-12
+    = horizontal_form_for @shipment do |f|
+      = f.input :hospital_number
+      = f.input :starting_number, label: "Isolate starting number"
+      = f.buttons do
+        = f.button :submit, value: "Save"

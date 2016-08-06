@@ -1,5 +1,7 @@
-require 'rails_helper'
-
 RSpec.describe Shipment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "can be instantiated" do
+    expect { Shipment.new }.to_not raise_error
+  end
+
 end
