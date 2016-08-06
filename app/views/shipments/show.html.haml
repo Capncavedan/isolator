@@ -11,11 +11,20 @@
             Hospital number
           %td
             = @shipment.hospital_number
+          %th
+            Objective code
+          %td
+            = @shipment.objective_code
         %tr
           %th
             Isolate starting number
           %td
             = @shipment.starting_number
+        %tr
+          %th
+            Isolate quantity to expect
+          %td
+            = @shipment.isolate_quantity
         %tr
           %th
             Created at
