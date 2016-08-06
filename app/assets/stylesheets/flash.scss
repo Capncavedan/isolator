@@ -7,3 +7,11 @@ div.flash.flash-message {
 div.flash.flash-message.bg-success {
   border-color: $brand-success;
 }
+
+div.flash.flash-message.bg-info {
+  border-color: $brand-info;
+}
+
+div.flash.flash-message.bg-danger {
+  border-color: $brand-danger;
+}

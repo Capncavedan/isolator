@@ -4,6 +4,10 @@ module FlashHelper
     case flash_type.to_s
     when "success"
       "bg-success"
+    when "failure"
+      "bg-danger"
+    when "notice"
+      "bg-info"
     end
   end
 
