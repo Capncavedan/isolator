@@ -1,6 +1,10 @@
 .row
   .col-xs-12
-    %h1 Specify hospital
+    %h1 Home
+
+.row
+  .col-xs-6
+    %h2 Specify hospital
 
     = form_tag "/specify_hospital_number", class: "form-inline" do
       .form-group
@@ -12,3 +16,8 @@
 
     - if current_hospital_number
       (currently #{current_hospital_number})
+
+  .col-xs-6
+    %h2 Actions
+    - if current_hospital_number
+      = link_to "Enter new shipment", new_shipment_path(hospital_number: current_hospital_number)

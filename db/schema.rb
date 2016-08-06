@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160806150603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "shipments", force: :cascade do |t|
+    t.integer  "hospital_number"
+    t.integer  "starting_number"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["hospital_number"], name: "index_shipments_on_hospital_number", using: :btree
+  end
 
 end
