@@ -19,5 +19,4 @@
 
   .col-xs-12.col-sm-5
     %h2 Actions
-    - if current_hospital_number
-      = link_to "Enter new shipment", new_shipment_path(hospital_number: current_hospital_number)
+    = link_to "Enter new shipment", new_shipment_path(hospital_number: current_hospital_number)

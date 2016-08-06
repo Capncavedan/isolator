@@ -29,9 +29,9 @@
           %th
             Created at
           %td
-            = @shipment.created_at
+            = full_date_format @shipment.created_at
         %tr
           %th
             Updated at
           %td
-            = @shipment.updated_at
+            = full_date_format @shipment.updated_at

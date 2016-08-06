@@ -1,0 +1,12 @@
+= horizontal_form_for @shipment do |f|
+
+  = f.input :hospital_number
+
+  = f.input :objective_code, as: :select, collection: %w(A B Q)
+
+  = f.input :starting_number, label: "Isolate starting number"
+
+  = f.input :isolate_quantity, label: "Isolate quantity to expect"
+
+  = f.buttons do
+    = f.button :submit, value: "Save"
