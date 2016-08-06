@@ -1,10 +1,14 @@
-%h1 Specify hospital
+.row
+  .col-xs-12
+    %h1 Specify hospital
 
-= form_tag "/specify_hospital_number" do
-  %label{for: "hospital_number"}
-    Enter hospital number
-  = text_field_tag "hospital_number", nil, {autofocus: true}
-  = submit_tag "Set"
+    = form_tag "/specify_hospital_number", class: "form-inline" do
+      .form-group
+        %label{for: "hospital_number"}
+          Enter hospital number
+        = text_field_tag "hospital_number", nil, {autofocus: true, class: "form-control"}
+      .form-group
+        = button_tag "Set", class: "btn btn-primary"
 
-- if current_hospital_number
-  (currently #{current_hospital_number})
+    - if current_hospital_number
+      (currently #{current_hospital_number})
