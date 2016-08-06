@@ -15,6 +15,14 @@
             Objective code
           %td
             = @shipment.objective_code
+
+        - if @shipment.organism.present?
+          %tr
+            %th
+              Organism
+            %td
+            = @shipment.organism
+
         %tr
           %th
             Isolate starting number

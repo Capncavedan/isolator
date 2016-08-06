@@ -31,4 +31,20 @@ RSpec.describe Shipment, type: :model do
     end
   end
 
+  describe "creating a new instance with overloaded objective_code" do
+    it "splits objective_code 'B / H. influenza' into objective code and organism" do
+      shipment = Shipment.new objective_code: "B / H. influenza"
+      shipment.run_callbacks :validation
+      expect(shipment.objective_code).to eq "B"
+      expect(shipment.organism).to eq "H. influenza"
+    end
+
+    it "splits objective_code 'B / M. catarrhalis' into objective code and organism" do
+      shipment = Shipment.new objective_code: "B / M. catarrhalis"
+      shipment.run_callbacks :validation
+      expect(shipment.objective_code).to eq "B"
+      expect(shipment.organism).to eq "M. catarrhalis"
+    end
+  end
+
 end

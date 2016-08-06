@@ -2,7 +2,7 @@
 
   = f.input :hospital_number
 
-  = f.input :objective_code, as: :select, collection: %w(A B Q)
+  = f.input :objective_code, as: :select, collection: shipment_objective_codes_with_organisms
 
   = f.input :starting_number, label: "Isolate starting number"
 
