@@ -3,19 +3,22 @@ Then(/^I should be on the isolate data entry form$/) do
 end
 
 When(/^I fill out the Objective\-A isolate data$/) do
-  fill_in "JMI number",               with: "1"
-  fill_in "Code number",              with: "A-1"
-  fill_in "Accession number",         with: "ABC123"
-  fill_in "Organism",                 with: "H. pylori"
-  fill_in "Date of admission",        with: "7/1/2016"
-  fill_in "Date of culture",          with: "7/2/2016"
-  select  "OTH / Other or Unknown",   from: "Source of BSI"
-  select  "M",                        from: "Sex"
-  fill_in "Age",                      with: "42"
-  select  "ID / Infectious Disease",  from: "Service"
-  select  "INF / Infection",          from: "Primary diagnosis"
-  select  "Yes",                      from: "ICU?"
-  select  "No",                       from: "Nosocomial?"
+  within "#isolate_form_row_0" do
+    fill_in "shipment_isolates_attributes_0_jmi_number",        with: "101678"
+    fill_in "shipment_isolates_attributes_0_code_number",       with: "123456"
+    fill_in "shipment_isolates_attributes_0_accession_number",  with: "000000"
+    fill_in "shipment_isolates_attributes_0_organism",          with: "H. pillori"
+    fill_in "shipment_isolates_attributes_0_date_of_admission", with: "2016-03-01"
+    fill_in "shipment_isolates_attributes_0_date_of_culture",   with: "2016-03-02"
+    fill_in "shipment_isolates_attributes_0_age",               with: "42"
+
+    select  "OTH / Other or Unknown",   from: "shipment_isolates_attributes_0_source"
+    select  "Male",                     from: "shipment_isolates_attributes_0_sex"
+    select  "ID / Infectious Disease",  from: "shipment_isolates_attributes_0_service"
+    select  "INF / Infection",          from: "shipment_isolates_attributes_0_primary_diagnosis"
+    select  "Yes",                      from: "shipment_isolates_attributes_0_icu"
+    select  "No",                       from: "shipment_isolates_attributes_0_nosocomial"
+  end
 end
 
 Then(/^I should be on the shipments index page$/) do

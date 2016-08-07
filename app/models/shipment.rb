@@ -1,6 +1,7 @@
 class Shipment < ApplicationRecord
 
   has_many :isolates
+  accepts_nested_attributes_for :isolates
 
   validates :hospital_number,  presence: true
   validates :starting_number,  presence: true

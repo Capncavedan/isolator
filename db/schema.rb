@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160807160654) do
 
   create_table "isolates", force: :cascade do |t|
     t.integer "shipment_id"
-    t.string  "jim_number"
+    t.string  "jmi_number"
     t.string  "code_number"
     t.string  "accession_number"
     t.string  "organism"

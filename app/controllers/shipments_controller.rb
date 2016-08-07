@@ -19,6 +19,11 @@ class ShipmentsController < ApplicationController
   end
 
   def data_entry
+    @shipment = Shipment.find params[:id]
+    # TODO: make this the "right" number of times
+    3.times do
+      @shipment.isolates.build
+    end
   end
 
 
