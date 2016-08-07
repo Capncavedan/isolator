@@ -1,6 +1,8 @@
 .row
   .col-xs-12
-    %h1 Shipment record
+    %h1
+      Shipment ID
+      = @shipment.id
 
 .row
   .col-xs-12
@@ -44,3 +46,7 @@
             Updated at
           %td
             = full_date_format @shipment.updated_at
+
+.row
+  .col-xs-12
+    = link_to "Start data entry", data_entry_shipment_path(@shipment), class: "btn btn-primary"

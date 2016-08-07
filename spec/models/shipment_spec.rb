@@ -1,7 +1,9 @@
 RSpec.describe Shipment, type: :model do
 
-  it "can be instantiated" do
-    expect { Shipment.new }.to_not raise_error
+  describe "relationships" do
+    it "has many isolates" do
+      expect(Shipment.new).to respond_to :isolates
+    end
   end
 
   describe "validations" do

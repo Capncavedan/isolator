@@ -28,7 +28,10 @@ group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'spring-commands-cucumber'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'selenium-webdriver'
 end
 
 group :test do

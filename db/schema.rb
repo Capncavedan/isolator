@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160806154652) do
+ActiveRecord::Schema.define(version: 20160807160654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "isolates", force: :cascade do |t|
+    t.integer "shipment_id"
+    t.string  "jmi_number"
+    t.string  "code_number"
+    t.string  "accession_number"
+    t.string  "organism"
+    t.date    "date_of_admission"
+    t.date    "date_of_culture"
+    t.string  "source"
+    t.string  "sex"
+    t.integer "age"
+    t.string  "service"
+    t.string  "primary_diagnosis"
+    t.boolean "icu",               null: false
+    t.boolean "nosocomial",        null: false
+    t.index ["shipment_id"], name: "index_isolates_on_shipment_id", using: :btree
+  end
 
   create_table "shipments", force: :cascade do |t|
     t.integer  "hospital_number"
