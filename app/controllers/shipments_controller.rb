@@ -1,6 +1,8 @@
 class ShipmentsController < ApplicationController
 
   def index
+    @shipments = Shipment.all.order(id: :desc).paginate(page: params[:page], per_page: 25)
+
   end
 
   def show

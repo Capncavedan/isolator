@@ -1,0 +1,36 @@
+.row
+  .col-xs-12
+    %h1
+      Shipments
+      = link_to "+ add new", new_shipment_path(hospital_number: current_hospital_number), class: "btn btn-default btn-sm"
+
+.row
+  .col-xs-12
+    %table.table.table-striped.table-hover.table-condensed
+      %thead
+        %tr
+          %th
+          %th ID
+          %th Hospital #
+          %th Objective
+          %th Starting #
+          %th Isolates expected
+          %th Isolates entered
+      %tbody
+        - @shipments.each do |shipment|
+          %tr
+            %td
+              = link_to content_tag(:span, "", class: "glyphicon glyphicon-edit"), edit_shipment_path(shipment)
+            %td
+              = link_to shipment.id, shipment
+
+            %td= shipment.hospital_number
+            %td= shipment.objective_code
+            %td= "#{shipment.objective_code}-#{shipment.starting_number}"
+            %td= shipment.isolate_quantity
+            %td= shipment.isolates.count
+
+.row
+  .col-xs-12
+    .center
+      = will_paginate @progress_report_requests

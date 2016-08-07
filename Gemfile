@@ -13,10 +13,12 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem "haml-rails"
+gem 'haml-rails'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :production do
-  gem "rails_12factor"
+  gem 'rails_12factor'
 end
 
 group :development, :test do
