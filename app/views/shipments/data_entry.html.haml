@@ -1,3 +1,15 @@
+%h1 Data entry
+
+%h4
+  Shipment ID
+  = @shipment.id
+  = " :: "
+  Hospital
+  = @shipment.hospital_number
+  = " :: "
+  Objective
+  = @shipment.objective_code
+
 = horizontal_form_for @shipment do |f|
   %table.table.table-striped.table-hover.table-condensed
     %thead
@@ -48,9 +60,8 @@
             Nosocomial?
 
     %tbody
-      - idx = -1
+      - idx = 0
       = f.simple_fields_for :isolates do |ff|
-        - idx += 1
         %tr{id: "isolate_form_row_#{idx}"}
           %td= ff.input :jmi_number, label: false, input_html: {maxlength: 100, class: "input-sm"}
 
@@ -77,6 +88,7 @@
           %td{style: "width: 6em;"}= ff.input :icu, as: :select, collection: yes_no_options, label: false, input_html: {class: "input-sm"}
 
           %td{style: "width: 6em;"}= ff.input :nosocomial, as: :select, collection: yes_no_options, label: false, input_html: {class: "input-sm"}
+        - idx += 1
 
 
   = f.buttons do
