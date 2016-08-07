@@ -74,9 +74,9 @@
 
           %td{style: "width: 6em;"}= ff.input :primary_diagnosis, as: :select, collection: primary_diagnosis_options, label: false, input_html: {maxlength: 100, class: "input-sm"}
 
-          %td{style: "width: 6em;"}= ff.input :icu, as: :select, collection: yes_no_true_false_options, label: false, input_html: {class: "input-sm"}
+          %td{style: "width: 6em;"}= ff.input :icu, as: :select, collection: yes_no_options, label: false, input_html: {class: "input-sm"}
 
-          %td{style: "width: 6em;"}= ff.input :nosocomial, as: :select, collection: yes_no_true_false_options, label: false, input_html: {class: "input-sm"}
+          %td{style: "width: 6em;"}= ff.input :nosocomial, as: :select, collection: yes_no_options, label: false, input_html: {class: "input-sm"}
 
 
   = f.buttons do

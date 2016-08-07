@@ -1,7 +1,7 @@
 module IsolateHelper
 
   def bloodstream_infection_source_options
-    [
+    prepend_value_to_option_text_and_sort [
       [ 'Bone/Joint Fluid', 'BON' ],
       [ 'Dialysis Line', 'DIA' ],
       [ 'Endocarditis', 'END' ],
@@ -13,11 +13,11 @@ module IsolateHelper
       [ 'Urine/Urinary Tract', 'UR' ],
       [ 'Skin/Skin structure/Wound/Drainage/Ulcer/Abscess', 'WD' ],
       [ 'Other or Unknown', 'OTH' ],
-    ].collect{ |arr| ["#{arr.last} - #{arr.first}", arr.last] }.sort
+    ]
   end
 
   def service_options
-    [
+    prepend_value_to_option_text_and_sort [
       [ 'Ambulatory/Outpatient', 'AMB' ],
       [ 'Burn', 'BUR' ],
       [ 'Cardiothoracic/Pulmonary', 'CAR' ],
@@ -46,11 +46,11 @@ module IsolateHelper
       [ 'Transplant', 'TRA' ],
       [ 'Trauma', 'TRM' ],
       [ 'Urology', 'URO' ],
-    ].collect{ |arr| ["#{arr.last} - #{arr.first}", arr.last] }.sort
+    ]
   end
 
   def primary_diagnosis_options
-    [
+    prepend_value_to_option_text_and_sort [
       [ 'Abdominal pain', 'ABD' ],
       [ 'Bladder', 'BLAD' ],
       [ 'Burn', 'BUR' ],
@@ -72,7 +72,7 @@ module IsolateHelper
       [ 'Transplantation', 'TRA' ],
       [ 'Trauma', 'TRM' ],
       [ 'Other', 'OTH' ],
-    ].collect{ |arr| ["#{arr.last} - #{arr.first}", arr.last] }.sort
+    ]
   end
 
   def sex_options
@@ -80,6 +80,20 @@ module IsolateHelper
       [ "Female", "F" ],
       [ "Male", "M" ],
     ]
+  end
+
+  def yes_no_options
+    [
+      [ "Yes", "Y" ],
+      [ "No",  "N" ]
+    ]
+  end
+
+
+  private
+
+  def prepend_value_to_option_text_and_sort(options)
+    options.collect{ |arr| ["#{arr.last} - #{arr.first}", arr.last] }.sort
   end
 
 end

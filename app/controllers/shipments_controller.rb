@@ -23,10 +23,9 @@ class ShipmentsController < ApplicationController
 
   def update
     @shipment = Shipment.find params[:id]
-    @shipment.attributes = shipment_params
-    if @shipment.save
-      flash[:success] = "Shipment updated - 25 isolate entries saved"
-      redirect_to "/shipments"
+    if @shipment.update_attributes shipment_params
+      flash[:success] = "Shipment updated - #{isolate_count_saved} isolate entries saved"
+      redirect_to shipments_path
     else
       # TODO: handle failure and error notifictions
     end
@@ -34,13 +33,23 @@ class ShipmentsController < ApplicationController
 
   def data_entry
     @shipment = Shipment.find params[:id]
-    1.times do  # TODO: make this the "right" number of times
+    required_additional_isolate_records.times do
       @shipment.isolates.build
     end
   end
 
 
   private
+
+  def isolate_count_saved
+    @shipment.isolates.count
+  end
+
+  def required_additional_isolate_records
+    total_expected = @shipment.isolate_quantity.to_i
+    existing = @shipment.isolates.count
+    total_expected - existing
+  end
 
   def shipment_params
     params.require(:shipment).permit!

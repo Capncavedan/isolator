@@ -12,7 +12,7 @@ Background:
 Scenario: Enter Objective-A isolate data
   When I follow "Start data entry"
   Then I should be on the isolate data entry form
-  When I fill out the Objective-A isolate data
+  When I fill out 5 rows of Objective-A isolate data
   And I press "Save"
   Then I should be on the shipments index page
-  And I should see a success flash message saying "25 isolate entries saved"
+  And I should see a success flash message saying "Shipment updated - 5 isolate entries saved"
