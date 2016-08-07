@@ -3,7 +3,7 @@ Then(/^I should be on the isolate data entry form$/) do
 end
 
 When(/^I fill out the Objective\-A isolate data$/) do
-  fill_in "JIM number",               with: "1"
+  fill_in "JMI number",               with: "1"
   fill_in "Code number",              with: "A-1"
   fill_in "Accession number",         with: "ABC123"
   fill_in "Organism",                 with: "H. pylori"
