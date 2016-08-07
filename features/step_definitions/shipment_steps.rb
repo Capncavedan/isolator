@@ -1,3 +1,21 @@
+Then(/^I follow the edit link for the existing shipment$/) do
+  within "td.edit-shipment-#{@shipment.id}" do
+    click_link "Edit"
+  end
+end
+
+Given(/^an existing shipment$/) do
+  @shipment = FactoryGirl.create :objective_a_shipment
+end
+
+When(/^I update information about the Objective\-A shipment$/) do
+  fill_in "Isolate starting number", with: 233
+end
+
+Then(/^I should see the updated Objective\-A shipment information$/) do
+  expect(page).to have_content "A-233"
+end
+
 Then(/^I should be on the new shipment form page$/) do
   expect(current_path).to eq "/shipments/new"
 end

@@ -1,4 +1,4 @@
-RSpec.describe "shipments/show.html.haml", type: :view do
+RSpec.describe "shipments/edit.html.haml", type: :view do
 
   before do
     assign :shipment, FactoryGirl.build_stubbed(:objective_a_shipment)

@@ -2,7 +2,7 @@
   .col-xs-12
     %h1
       Shipments
-      = link_to "+ add new", new_shipment_path(hospital_number: current_hospital_number), class: "btn btn-default btn-sm"
+      = link_to "+ add new", new_shipment_path(hospital_number: current_hospital_number), class: "btn btn-default btn-sm", alt: "Edit", title: "Edit"
 
 .row
   .col-xs-12
@@ -19,8 +19,8 @@
       %tbody
         - @shipments.each do |shipment|
           %tr
-            %td
-              = link_to content_tag(:span, "", class: "glyphicon glyphicon-edit"), edit_shipment_path(shipment)
+            %td{class: "edit-shipment-#{shipment.id}"}
+              = link_to "Edit", edit_shipment_path(shipment)
             %td
               = link_to shipment.id, shipment
 

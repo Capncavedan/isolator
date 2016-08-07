@@ -1,4 +1,4 @@
-Feature: As a user, I want to manage shipment records for incoming isolates
+Feature: As a user, I want to create shipment records for incoming isolates
 
 Background:
   When I go to the app's home page

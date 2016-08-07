@@ -23,3 +23,7 @@ end
 When(/^I follow "([^"]*)"$/) do |link_text|
   click_link link_text
 end
+
+Then(/^show me the page$/) do
+  save_and_open_page
+end

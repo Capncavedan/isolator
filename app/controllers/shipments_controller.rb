@@ -2,7 +2,6 @@ class ShipmentsController < ApplicationController
 
   def index
     @shipments = Shipment.all.order(id: :desc).paginate(page: params[:page], per_page: 25)
-
   end
 
   def show
@@ -21,6 +20,10 @@ class ShipmentsController < ApplicationController
     else
       # TODO: handle failure and error notifictions
     end
+  end
+
+  def edit
+    @shipment = Shipment.find params[:id]
   end
 
   def update
