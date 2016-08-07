@@ -12,10 +12,10 @@ When(/^I fill out the Objective\-A isolate data$/) do
     fill_in "shipment_isolates_attributes_0_date_of_culture",   with: "2016-03-02"
     fill_in "shipment_isolates_attributes_0_age",               with: "42"
 
-    select  "OTH / Other or Unknown",   from: "shipment_isolates_attributes_0_source"
+    select  "OTH - Other or Unknown",   from: "shipment_isolates_attributes_0_source"
     select  "Male",                     from: "shipment_isolates_attributes_0_sex"
-    select  "ID / Infectious Disease",  from: "shipment_isolates_attributes_0_service"
-    select  "INF / Infection",          from: "shipment_isolates_attributes_0_primary_diagnosis"
+    select  "ID - Infectious Disease",  from: "shipment_isolates_attributes_0_service"
+    select  "INF - Infection",          from: "shipment_isolates_attributes_0_primary_diagnosis"
     select  "Yes",                      from: "shipment_isolates_attributes_0_icu"
     select  "No",                       from: "shipment_isolates_attributes_0_nosocomial"
   end

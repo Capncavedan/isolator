@@ -1,5 +1,8 @@
 class ShipmentsController < ApplicationController
 
+  def index
+  end
+
   def show
     @shipment = Shipment.find params[:id]
   end
@@ -18,10 +21,20 @@ class ShipmentsController < ApplicationController
     end
   end
 
+  def update
+    @shipment = Shipment.find params[:id]
+    @shipment.attributes = shipment_params
+    if @shipment.save
+      flash[:success] = "Shipment updated - 25 isolate entries saved"
+      redirect_to "/shipments"
+    else
+      # TODO: handle failure and error notifictions
+    end
+  end
+
   def data_entry
     @shipment = Shipment.find params[:id]
-    # TODO: make this the "right" number of times
-    3.times do
+    1.times do  # TODO: make this the "right" number of times
       @shipment.isolates.build
     end
   end
