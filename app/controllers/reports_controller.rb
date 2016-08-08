@@ -1,7 +1,8 @@
 class ReportsController < ApplicationController
 
   def hospital_stats
-    @hospital_numbers = Shipment.distinct.pluck(:hospital_number).sort
+    @hospital_numbers = Report.shipment_hospital_numbers
+    @hospital_stats   = Report.hospital_stats
   end
 
 end

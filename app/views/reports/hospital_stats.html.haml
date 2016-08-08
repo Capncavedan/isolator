@@ -18,48 +18,48 @@
             %td.hospital-info
               = hospital_number
             %td.shipment-info
-              = Shipment.where(hospital_number: hospital_number).count
+              = @hospital_stats["shipment_info_#{hospital_number}"]
             %td.objective-info
               - %w(A B Q).each do |objective_code|
                 %span.number-label
                   = objective_code
                 %span.number
-                  = Shipment.where(hospital_number: hospital_number, objective_code: objective_code).count
+                  = @hospital_stats["objective_info_#{objective_code}_#{hospital_number}"]
                 %br
             %td.isolate-info
               - %w(A B Q).each do |objective_code|
                 %span.number-label
                   = objective_code
                 %span.number
-                  = Shipment.joins(:isolates).where(hospital_number: hospital_number, objective_code: objective_code).count
+                  = @hospital_stats["isolate_info_#{objective_code}_#{hospital_number}"]
                 %br
               %span.number-label
                 Total
               %span.number
-                = Shipment.joins(:isolates).where(hospital_number: hospital_number,).count
+                = @hospital_stats["isolate_info_total_#{hospital_number}"]
 
         %tr{class: "hospital-stats-summary"}
           %th.hospital-info
             = @hospital_numbers.size
             hospitals
           %th.shipment-info
-            = Shipment.all.count
+            = @hospital_stats["shipment_info"]
             shipments
           %th.objective-info
             - %w(A B Q).each do |objective_code|
               %span.number-label
                 = objective_code
               %span.number
-                = Shipment.where(objective_code: objective_code).count
+                = @hospital_stats["objective_info_#{objective_code}"]
               %br
           %th.isolate-info
             - %w(A B Q).each do |objective_code|
               %span.number-label
                 = objective_code
               %span.number
-                = Shipment.joins(:isolates).where(objective_code: objective_code).count
+                = @hospital_stats["isolate_info_#{objective_code}"]
               %br
             %span.number-label
               Total
             %span.number
-              = Shipment.joins(:isolates).count
+              = @hospital_stats["isolate_info_total"]
