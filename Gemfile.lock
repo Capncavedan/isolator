@@ -276,6 +276,7 @@ DEPENDENCIES
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_form
   simple_form_bootstrap3
   spring
   spring-commands-cucumber

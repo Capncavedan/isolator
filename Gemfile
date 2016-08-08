@@ -6,6 +6,7 @@ gem 'rails', '~> 5.0.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
+gem "simple_form"
 gem 'simple_form_bootstrap3'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
