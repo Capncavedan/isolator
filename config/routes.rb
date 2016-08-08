@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   post "specify_hospital_number", to: "specify_hospital_number", controller: :application
 
+  get "/reports/hospital_stats", to: "reports#hospital_stats"
+
 end

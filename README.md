@@ -23,7 +23,9 @@ Uses Postgresql - can set up databases with `rake db:create`
 
 #### Database initialization
 
-`rake db:setup` will load the schema
+`rake db:setup` will load the schema.
+
+`rake db:seed` will run a script to populate the development database with example data.
 
 #### How to run the test suite
 
