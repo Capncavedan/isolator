@@ -18,6 +18,7 @@ class ShipmentsController < ApplicationController
       flash[:success] = "New shipment record created"
       redirect_to @shipment
     else
+      p @shipment.errors
       # TODO: handle failure and error notifictions
     end
   end
@@ -32,6 +33,7 @@ class ShipmentsController < ApplicationController
       flash[:success] = "Shipment updated - #{isolate_count_saved} isolate entries saved"
       redirect_to shipments_path
     else
+      p @shipment.errors
       # TODO: handle failure and error notifictions
     end
   end

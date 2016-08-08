@@ -81,9 +81,9 @@
 
           %td= ff.input :organism, label: false, input_html: {maxlength: 100, class: "input-sm"}
 
-          %td= ff.input :date_of_admission, as: :string, label: false, input_html: {maxlength: 100, class: "input-sm"}
+          %td= ff.input :date_of_admission, as: :string, label: false, input_html: {maxlength: 100, placeholder: "yyyy-mm-dd", class: "input-sm"}
 
-          %td= ff.input :date_of_culture, as: :string, label: false, input_html: {maxlength: 100, class: "input-sm"}
+          %td= ff.input :date_of_culture, as: :string, label: false, input_html: {maxlength: 100, placeholder: "yyyy-mm-dd", class: "input-sm"}
 
           - if collect_specimen_type?(@shipment)
             %td{style: "width: 6em;"}= ff.input :specimen_type, as: :select, collection: specimen_type_options, label: false, input_html: {class: "input-sm"}
@@ -100,9 +100,19 @@
           - if collect_primary_diagnosis?(@shipment)
             %td{style: "width: 6em;"}= ff.input :primary_diagnosis, as: :select, collection: primary_diagnosis_options, label: false, input_html: {class: "input-sm"}
 
-          %td{style: "width: 6em;"}= ff.input :icu, as: :select, collection: yes_no_options, label: false, input_html: {class: "input-sm"}
+          %td{style: "width: 6em;"}
+            = ff.input :icu, |
+              as: :select, |
+              include_blank: true, |
+              label: false, |
+              input_html: {class: "input-sm"}
 
-          %td{style: "width: 6em;"}= ff.input :nosocomial, as: :select, collection: yes_no_options, label: false, input_html: {class: "input-sm"}
+          %td{style: "width: 6em;"}
+            = ff.input :nosocomial, |
+              as: :select, |
+              include_blank: true, |
+              label: false, |
+              input_html: {class: "input-sm"}
         - idx += 1
 
 
