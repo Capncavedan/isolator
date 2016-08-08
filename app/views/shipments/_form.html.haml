@@ -1,4 +1,4 @@
-= simple_form_for @shipment, class: "horizontal" do |f|
+= simple_form_for @shipment, wrapper: :vertical_form do |f|
 
   = f.input :hospital_number
 
@@ -8,4 +8,4 @@
 
   = f.input :isolate_quantity, label: "Isolate quantity to expect"
 
-  = f.button :submit, value: "Save"
+  = f.button :submit, value: "Save", class: "btn btn-primary"

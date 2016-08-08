@@ -10,7 +10,7 @@
   Objective
   = @shipment.objective_code
 
-= horizontal_form_for @shipment do |f|
+= simple_form_for @shipment, wrapper: :vertical_form do |f|
   %table.table.table-striped.table-hover.table-condensed
     %thead
       %tr
@@ -81,9 +81,9 @@
 
           %td= ff.input :organism, label: false, input_html: {maxlength: 100, class: "input-sm"}
 
-          %td= ff.input :date_of_admission, label: false, input_html: {maxlength: 100, class: "input-sm"}
+          %td= ff.input :date_of_admission, as: :string, label: false, input_html: {maxlength: 100, class: "input-sm"}
 
-          %td= ff.input :date_of_culture, label: false, input_html: {maxlength: 100, class: "input-sm"}
+          %td= ff.input :date_of_culture, as: :string, label: false, input_html: {maxlength: 100, class: "input-sm"}
 
           - if collect_specimen_type?(@shipment)
             %td{style: "width: 6em;"}= ff.input :specimen_type, as: :select, collection: specimen_type_options, label: false, input_html: {class: "input-sm"}
@@ -106,5 +106,4 @@
         - idx += 1
 
 
-  = f.buttons do
-    = f.button :submit, value: "Save"
+  = f.button :submit, value: "Save", class: "btn btn-primary"
