@@ -1,3 +1,7 @@
+Then(/^I should be on the hospital stats report page$/) do
+  expect(current_path).to match /\/reports\/hospital_stats/
+end
+
 Then(/^I should be on the isolate data entry form$/) do
   expect(current_path).to match /\/shipments\/\d+\/data_entry/
 end

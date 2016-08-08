@@ -1,0 +1,65 @@
+.row
+  .col-xs-12
+    %h1 Hospital stats
+
+.row
+  .col-xs-12
+    %table.table.table-striped.table-hover
+      %thead
+        %tr
+          %th Hospital #
+          %th Shipment Qty
+          %th Objective Qty
+          %th Isolate Qty
+
+      %tbody
+        - @hospital_numbers.each do |hospital_number|
+          %tr{class: "hospital-stats-#{hospital_number}"}
+            %td.hospital-info
+              = hospital_number
+            %td.shipment-info
+              = Shipment.where(hospital_number: hospital_number).count
+            %td.objective-info
+              - %w(A B Q).each do |objective_code|
+                %span.number-label
+                  = objective_code
+                %span.number
+                  = Shipment.where(hospital_number: hospital_number, objective_code: objective_code).count
+                %br
+            %td.isolate-info
+              - %w(A B Q).each do |objective_code|
+                %span.number-label
+                  = objective_code
+                %span.number
+                  = Shipment.joins(:isolates).where(hospital_number: hospital_number, objective_code: objective_code).count
+                %br
+              %span.number-label
+                Total
+              %span.number
+                = Shipment.joins(:isolates).where(hospital_number: hospital_number,).count
+
+        %tr{class: "hospital-stats-summary"}
+          %th.hospital-info
+            = @hospital_numbers.size
+            hospitals
+          %th.shipment-info
+            = Shipment.all.count
+            shipments
+          %th.objective-info
+            - %w(A B Q).each do |objective_code|
+              %span.number-label
+                = objective_code
+              %span.number
+                = Shipment.where(objective_code: objective_code).count
+              %br
+          %th.isolate-info
+            - %w(A B Q).each do |objective_code|
+              %span.number-label
+                = objective_code
+              %span.number
+                = Shipment.joins(:isolates).where(objective_code: objective_code).count
+              %br
+            %span.number-label
+              Total
+            %span.number
+              = Shipment.joins(:isolates).count
