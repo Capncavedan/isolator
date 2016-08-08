@@ -17,10 +17,6 @@ When(/^I fill out 5 rows of Objective\-Q isolate data$/) do
   end
 end
 
-Then(/^I should be on the isolate data entry form$/) do
-  expect(current_path).to match /\/shipments\/\d+\/data_entry/
-end
-
 When(/^I fill out 5 rows of Objective\-A isolate data$/) do
   (0..4).each do |idx|
     within "#isolate_form_row_#{idx}" do
@@ -40,8 +36,4 @@ When(/^I fill out 5 rows of Objective\-A isolate data$/) do
       select "No",                       from: "shipment_isolates_attributes_#{idx}_nosocomial"
     end
   end
-end
-
-Then(/^I should be on the shipments index page$/) do
-  expect(current_path).to eq "/shipments"
 end

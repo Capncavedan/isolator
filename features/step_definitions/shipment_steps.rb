@@ -16,10 +16,6 @@ Then(/^I should see the updated Objective\-A shipment information$/) do
   expect(page).to have_content "A-233"
 end
 
-Then(/^I should be on the new shipment form page$/) do
-  expect(current_path).to eq "/shipments/new"
-end
-
 When(/^I enter information about a new Objective\-A shipment$/) do
   select "A", from: "Objective code"
   fill_in "Isolate starting number", with: 10
@@ -30,10 +26,6 @@ When(/^I enter information about a new Objective\-Q shipment$/) do
   select "Q", from: "Objective code"
   fill_in "Isolate starting number", with: 22
   fill_in "Isolate quantity to expect", with: 5
-end
-
-Then(/^I should be on the shipment show page$/) do
-  expect(current_path).to match /shipments\/\d+$/
 end
 
 Then(/^I should see the Objective\-A shipment information I entered previously$/) do
