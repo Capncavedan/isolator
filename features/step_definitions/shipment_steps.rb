@@ -26,6 +26,12 @@ When(/^I enter information about a new Objective\-A shipment$/) do
   fill_in "Isolate quantity to expect", with: 5
 end
 
+When(/^I enter information about a new Objective\-Q shipment$/) do
+  select "Q", from: "Objective code"
+  fill_in "Isolate starting number", with: 22
+  fill_in "Isolate quantity to expect", with: 5
+end
+
 Then(/^I should be on the shipment show page$/) do
   expect(current_path).to match /shipments\/\d+$/
 end

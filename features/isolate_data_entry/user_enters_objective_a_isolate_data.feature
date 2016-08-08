@@ -1,4 +1,4 @@
-Feature: As a user, I need to enter isolate data from lab measurements
+Feature: As a user, I need to enter objective A isolate data from lab measurements
 
 Background:
   When I go to the app's home page

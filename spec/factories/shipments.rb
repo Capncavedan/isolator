@@ -8,6 +8,10 @@ FactoryGirl.define do
     factory :objective_a_shipment do
       objective_code "A"
     end
+
+    factory :objective_q_shipment do
+      objective_code "Q"
+    end
   end
 
 end

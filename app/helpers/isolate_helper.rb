@@ -1,5 +1,34 @@
 module IsolateHelper
 
+  def collect_jmi_number?(shipment)
+    shipment.objective_code == 'A'
+  end
+
+  def collect_specimen_type?(shipment)
+    shipment.objective_code == 'Q'
+  end
+
+  def collect_bloodstream_infection_source?(shipment)
+    shipment.objective_code == 'A'
+  end
+
+  def collect_primary_diagnosis?(shipment)
+    shipment.objective_code == 'A'
+  end
+
+  def specimen_type_options
+    prepend_value_to_option_text_and_sort [
+      [ 'Abscess (pus)', 'AB' ],
+      [ 'Aspirate', 'ASP' ],
+      [ 'GI tract/Bowel/Bile', 'GI' ],
+      [ 'Peritoneal Fluid', 'PRT' ],
+      [ 'Rectum/Rectal Swab', 'REC' ],
+      [ 'Tissue', 'TI' ],
+      [ 'Skin/Skin Structure/Wound/Drainage/Ulcer', 'WD' ],
+      [ 'Other or Unknown', 'OTH' ],
+    ]
+  end
+
   def bloodstream_infection_source_options
     prepend_value_to_option_text_and_sort [
       [ 'Bone/Joint Fluid', 'BON' ],

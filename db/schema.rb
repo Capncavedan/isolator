@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807160654) do
+ActiveRecord::Schema.define(version: 20160808004705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160807160654) do
     t.string  "primary_diagnosis"
     t.boolean "icu",               null: false
     t.boolean "nosocomial",        null: false
+    t.string  "specimen_type"
     t.index ["shipment_id"], name: "index_isolates_on_shipment_id", using: :btree
   end
 

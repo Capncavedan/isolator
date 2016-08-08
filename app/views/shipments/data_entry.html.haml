@@ -14,9 +14,10 @@
   %table.table.table-striped.table-hover.table-condensed
     %thead
       %tr
-        %th
-          %small
-            JMI#
+        - if collect_jmi_number?(@shipment)
+          %th
+            %small
+              JMI#
         %th
           %small
             Code#
@@ -35,9 +36,16 @@
             Date of
             %br
             culture
-        %th
-          %small
-            Source
+        - if collect_specimen_type?(@shipment)
+          %th
+            %small
+              Specimen
+              %br
+              type
+        - if collect_bloodstream_infection_source?(@shipment)
+          %th
+            %small
+              Source
         %th
           %small
             Sex
@@ -47,11 +55,12 @@
         %th
           %small
             Service
-        %th
-          %small
-            Primary
-            %br
-            Diagnosis
+        - if collect_primary_diagnosis?(@shipment)
+          %th
+            %small
+              Primary
+              %br
+              Diagnosis
         %th
           %small
             ICU?
@@ -63,7 +72,8 @@
       - idx = 0
       = f.simple_fields_for :isolates do |ff|
         %tr{id: "isolate_form_row_#{idx}"}
-          %td= ff.input :jmi_number, label: false, input_html: {maxlength: 100, class: "input-sm"}
+          - if collect_jmi_number?(@shipment)
+            %td= ff.input :jmi_number, label: false, input_html: {maxlength: 100, class: "input-sm"}
 
           %td= ff.input :code_number, label: false, input_html: {maxlength: 100, class: "input-sm"}
 
@@ -75,15 +85,20 @@
 
           %td= ff.input :date_of_culture, label: false, input_html: {maxlength: 100, class: "input-sm"}
 
-          %td{style: "width: 6em;"}= ff.input :source, as: :select, collection: bloodstream_infection_source_options, label: false, input_html: {maxlength: 100, class: "input-sm"}
+          - if collect_specimen_type?(@shipment)
+            %td{style: "width: 6em;"}= ff.input :specimen_type, as: :select, collection: specimen_type_options, label: false, input_html: {class: "input-sm"}
+
+          - if collect_bloodstream_infection_source?(@shipment)
+            %td{style: "width: 6em;"}= ff.input :source, as: :select, collection: bloodstream_infection_source_options, label: false, input_html: {class: "input-sm"}
 
           %td{style: "width: 6em;"}= ff.input :sex, as: :select, collection: sex_options, label: false, input_html: {class: "input-sm"}
 
           %td{style: "width: 6em;"}= ff.input :age, label: false, input_html: {class: "input-sm"}
 
-          %td{style: "width: 6em;"}= ff.input :service, as: :select, collection: service_options, label: false, input_html: {maxlength: 100, class: "input-sm"}
+          %td{style: "width: 6em;"}= ff.input :service, as: :select, collection: service_options, label: false, input_html: {class: "input-sm"}
 
-          %td{style: "width: 6em;"}= ff.input :primary_diagnosis, as: :select, collection: primary_diagnosis_options, label: false, input_html: {maxlength: 100, class: "input-sm"}
+          - if collect_primary_diagnosis?(@shipment)
+            %td{style: "width: 6em;"}= ff.input :primary_diagnosis, as: :select, collection: primary_diagnosis_options, label: false, input_html: {class: "input-sm"}
 
           %td{style: "width: 6em;"}= ff.input :icu, as: :select, collection: yes_no_options, label: false, input_html: {class: "input-sm"}
 
