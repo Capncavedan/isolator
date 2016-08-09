@@ -10,7 +10,7 @@
   Objective
   = @shipment.objective_code
 
-= simple_form_for @shipment, wrapper: :vertical_form do |f|
+= simple_form_for @shipment, url: save_isolate_data_shipment_path(@shipment), wrapper: :vertical_form do |f|
   %table.table.table-striped.table-hover.table-condensed.isolate-data-entry
     %thead
       %tr

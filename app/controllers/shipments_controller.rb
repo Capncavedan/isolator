@@ -30,6 +30,17 @@ class ShipmentsController < ApplicationController
   def update
     @shipment = Shipment.find params[:id]
     if @shipment.update_attributes shipment_params
+      flash[:success] = "Shipment updated"
+      redirect_to shipments_path
+    else
+      flash.now[:failure] = "Some validation errors prevented saving"
+      render action: "edit"
+    end
+  end
+
+  def save_isolate_data
+    @shipment = Shipment.find params[:id]
+    if @shipment.update_attributes shipment_params
       flash[:success] = "Shipment updated - #{isolate_count_saved} isolate entries saved"
       redirect_to shipments_path
     else
