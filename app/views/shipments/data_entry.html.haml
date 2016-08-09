@@ -10,8 +10,8 @@
   Objective
   = @shipment.objective_code
 
-= simple_form_for @shipment, wrapper: :vertical_form do |f|
-  %table.table.table-striped.table-hover.table-condensed
+= simple_form_for @shipment, url: save_isolate_data_shipment_path(@shipment), wrapper: :vertical_form do |f|
+  %table.table.table-striped.table-hover.table-condensed.isolate-data-entry
     %thead
       %tr
         - if collect_jmi_number?(@shipment)
@@ -72,42 +72,55 @@
       - idx = 0
       = f.simple_fields_for :isolates do |ff|
         %tr{id: "isolate_form_row_#{idx}"}
+
           - if collect_jmi_number?(@shipment)
-            %td= ff.input :jmi_number, label: false, input_html: {maxlength: 100, class: "input-sm"}
+            %td
+              = ff.input :jmi_number, label: false, input_html: {maxlength: 100, class: "input-sm"}
 
-          %td= ff.input :code_number, label: false, input_html: {maxlength: 100, class: "input-sm"}
+          %td
+            = ff.input :code_number, label: false, input_html: {maxlength: 100, class: "input-sm"}
 
-          %td= ff.input :accession_number, label: false, input_html: {maxlength: 100, class: "input-sm"}
+          %td
+            = ff.input :accession_number, label: false, input_html: {maxlength: 100, class: "input-sm"}
 
-          %td= ff.input :organism, label: false, input_html: {maxlength: 100, class: "input-sm"}
+          %td
+            = ff.input :organism, label: false, input_html: {maxlength: 100, class: "input-sm"}
 
-          %td= ff.input :date_of_admission, as: :string, label: false, input_html: {maxlength: 100, placeholder: "yyyy-mm-dd", class: "input-sm"}
+          %td.not-too-small
+            = ff.input :date_of_admission, as: :string, label: false, input_html: {maxlength: 100, placeholder: "yyyy-mm-dd", class: "input-sm"}
 
-          %td= ff.input :date_of_culture, as: :string, label: false, input_html: {maxlength: 100, placeholder: "yyyy-mm-dd", class: "input-sm"}
+          %td.not-too-small
+            = ff.input :date_of_culture, as: :string, label: false, input_html: {maxlength: 100, placeholder: "yyyy-mm-dd", class: "input-sm"}
 
           - if collect_specimen_type?(@shipment)
-            %td{style: "width: 6em;"}= ff.input :specimen_type, as: :select, collection: specimen_type_options, label: false, input_html: {class: "input-sm"}
+            %td.not-too-small
+              = ff.input :specimen_type, as: :select, collection: specimen_type_options, label: false, input_html: {class: "input-sm"}
 
           - if collect_bloodstream_infection_source?(@shipment)
-            %td{style: "width: 6em;"}= ff.input :source, as: :select, collection: bloodstream_infection_source_options, label: false, input_html: {class: "input-sm"}
+            %td.not-too-small
+              = ff.input :source, as: :select, collection: bloodstream_infection_source_options, label: false, input_html: {class: "input-sm"}
 
-          %td{style: "width: 6em;"}= ff.input :sex, as: :select, collection: sex_options, label: false, input_html: {class: "input-sm"}
+          %td.not-too-small
+            = ff.input :sex, as: :select, collection: sex_options, label: false, input_html: {class: "input-sm"}
 
-          %td{style: "width: 6em;"}= ff.input :age, label: false, input_html: {class: "input-sm"}
+          %td.not-too-small{class: bg_error_class(ff.object, :age)}
+            = ff.input :age, label: false, required: false, input_html: {class: "input-sm"}
 
-          %td{style: "width: 6em;"}= ff.input :service, as: :select, collection: service_options, label: false, input_html: {class: "input-sm"}
+          %td.not-too-small
+            = ff.input :service, as: :select, collection: service_options, label: false, input_html: {class: "input-sm"}
 
           - if collect_primary_diagnosis?(@shipment)
-            %td{style: "width: 6em;"}= ff.input :primary_diagnosis, as: :select, collection: primary_diagnosis_options, label: false, input_html: {class: "input-sm"}
+            %td.not-too-small
+              = ff.input :primary_diagnosis, as: :select, collection: primary_diagnosis_options, label: false, input_html: {class: "input-sm"}
 
-          %td{style: "width: 6em;"}
+          %td.not-too-small{class: bg_error_class(ff.object, :icu)}
             = ff.input :icu, |
               as: :select, |
               include_blank: true, |
               label: false, |
               input_html: {class: "input-sm"}
 
-          %td{style: "width: 6em;"}
+          %td.not-too-small{class: bg_error_class(ff.object, :nosocomial)}
             = ff.input :nosocomial, |
               as: :select, |
               include_blank: true, |

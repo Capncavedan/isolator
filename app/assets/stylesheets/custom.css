@@ -14,3 +14,7 @@ span.number-label {
   display: inline-block;
   text-align: left;
 }
+
+table.isolate-data-entry tbody tr td.not-too-small {
+  min-width: 6em;
+}

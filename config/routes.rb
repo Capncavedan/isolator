@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   resources :shipments do
     member do
-      get :data_entry
+      get   :data_entry
+      patch :save_isolate_data
     end
   end
 

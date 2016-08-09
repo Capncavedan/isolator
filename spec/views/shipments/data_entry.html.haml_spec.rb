@@ -1,7 +1,7 @@
 RSpec.describe "shipments/data_entry.html.haml", type: :view do
 
   it "works" do
-    assign :shipment, Shipment.new
+    assign :shipment, FactoryGirl.build_stubbed(:shipment)
     expect{ render }.to_not raise_error
   end
 
