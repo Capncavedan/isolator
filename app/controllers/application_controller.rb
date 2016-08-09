@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base
+
   protect_from_forgery with: :exception
 
   include SessionHelper
+
+  before_action :assign_body_css_classes
 
   def index
   end
@@ -28,6 +31,10 @@ class ApplicationController < ActionController::Base
     else
       flash[:notice] = "Hospital number cleared"
     end
+  end
+
+  def assign_body_css_classes
+    @body_css_classes = "#{params[:controller]} #{params[:action]}"
   end
 
 end
