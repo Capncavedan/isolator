@@ -1,5 +1,11 @@
 module IsolateHelper
 
+  def bg_error_class(obj, attribute)
+    if obj.errors[attribute.to_sym].to_a.any?
+      "bg-danger"
+    end
+  end
+
   def collect_jmi_number?(shipment)
     shipment.objective_code == 'A'
   end

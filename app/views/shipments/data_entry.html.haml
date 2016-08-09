@@ -103,7 +103,7 @@
           %td.not-too-small
             = ff.input :sex, as: :select, collection: sex_options, label: false, input_html: {class: "input-sm"}
 
-          %td.not-too-small{class: (ff.object.errors[:age].any? ? "bg-danger" : "")}
+          %td.not-too-small{class: bg_error_class(ff.object, :age)}
             = ff.input :age, label: false, required: false, input_html: {class: "input-sm"}
 
           %td.not-too-small
@@ -113,14 +113,14 @@
             %td.not-too-small
               = ff.input :primary_diagnosis, as: :select, collection: primary_diagnosis_options, label: false, input_html: {class: "input-sm"}
 
-          %td.not-too-small{class: (ff.object.errors[:icu].any? ? "bg-danger" : "")}
+          %td.not-too-small{class: bg_error_class(ff.object, :icu)}
             = ff.input :icu, |
               as: :select, |
               include_blank: true, |
               label: false, |
               input_html: {class: "input-sm"}
 
-          %td.not-too-small{class: (ff.object.errors[:nosocomial].any? ? "bg-danger" : "")}
+          %td.not-too-small{class: bg_error_class(ff.object, :nosocomial)}
             = ff.input :nosocomial, |
               as: :select, |
               include_blank: true, |

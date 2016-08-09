@@ -1,5 +1,21 @@
 RSpec.describe IsolateHelper, type: :helper do
 
+  describe "#bg_error_class" do
+    before do
+      errors = {icu: ["can't be blank"]}
+      @obj = double("obj")
+      allow(@obj).to receive(:errors).and_return(errors)
+    end
+
+    it "returns bg-danger when there are errors on an attribute" do
+      expect(helper.bg_error_class(@obj, :icu)).to eq "bg-danger"
+    end
+
+    it "returns nil when there are no errors on an attribute" do
+      expect(helper.bg_error_class(@obj, :not_the_icu)).to eq nil
+    end
+  end
+
   describe "#collect_jmi_number?" do
     it "is true for Obective A shipment" do
       shipment = Shipment.new objective_code: "A"
