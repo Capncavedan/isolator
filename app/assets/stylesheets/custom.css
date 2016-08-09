@@ -18,3 +18,7 @@ span.number-label {
 table.isolate-data-entry tbody tr td.not-too-small {
   min-width: 6em;
 }
+
+body.shipments.data_entry div.container, body.shipments.save_isolate_data div.container {
+  width: 98%;
+}
