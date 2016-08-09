@@ -9,4 +9,14 @@ module ShipmentHelper
     ]
   end
 
+  def selected_shipment_objective_code_with_organism(shipment)
+    if shipment.objective_code == "B"
+      if shipment.organism.present?
+        "#{shipment.objective_code} / #{shipment.organism}"
+      end
+    else
+      shipment.objective_code
+    end
+  end
+
 end
