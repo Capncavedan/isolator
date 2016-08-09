@@ -16,3 +16,14 @@ Scenario: Enter Objective-A isolate data
   And I press "Save"
   Then I should be on the shipments index page
   And I should see a success flash message saying "Shipment updated - 5 isolate entries saved"
+
+Scenario: Enter Objective-A isolate data with validation errors first attempt
+  When I follow "Start data entry"
+  Then I should be on the isolate data entry form
+  When I incorrectly fill out 5 rows of Objective-A isolate data
+  And I press "Save"
+  Then I should see a failure flash message saying "Some validation errors prevented saving"
+  When I correct the validation errors
+  And I press "Save"
+  Then I should be on the shipments index page
+  And I should see a success flash message saying "Shipment updated - 5 isolate entries saved"

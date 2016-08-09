@@ -33,20 +33,24 @@ class ShipmentsController < ApplicationController
       flash[:success] = "Shipment updated - #{isolate_count_saved} isolate entries saved"
       redirect_to shipments_path
     else
-      p @shipment.errors
-      # TODO: handle failure and error notifictions
+      flash.now[:failure] = "Some validation errors prevented saving"
+      render action: "data_entry"
     end
   end
 
   def data_entry
     @shipment = Shipment.find params[:id]
-    required_additional_isolate_records.times do
-      @shipment.isolates.build
-    end
+    build_isolates
   end
 
 
   private
+
+  def build_isolates
+    required_additional_isolate_records.times do
+      @shipment.isolates.build
+    end
+  end
 
   def isolate_count_saved
     @shipment.isolates.count
