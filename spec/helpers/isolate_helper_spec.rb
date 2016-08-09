@@ -99,11 +99,4 @@ RSpec.describe IsolateHelper, type: :helper do
     end
   end
 
-  describe "#yes_no_options" do
-    it "returns an array of 2 options" do
-      expect(helper.yes_no_options).to be_a Array
-      expect(helper.yes_no_options.size).to eq 2
-    end
-  end
-
 end

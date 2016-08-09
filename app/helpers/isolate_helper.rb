@@ -111,13 +111,6 @@ module IsolateHelper
     ]
   end
 
-  def yes_no_options
-    [
-      [ "Yes", "Y" ],
-      [ "No",  "N" ]
-    ]
-  end
-
 
   private
 
